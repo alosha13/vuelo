@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+using namespace std ;
+typedef long long ll ;
+const int mod = (int)1e9 + 7;
+const int N = 1e6 + 9 ;
+vector < ll > v ;
+map < ll , ll > mp ;
+ll n , m , a[N] ;
+
+int main(){
+    int x , y , z ;
+    cin >> x >> y >> z ;
+    if(__gcd(x , y) < z){
+        cout << "YES" << endl ;
+    }
+    else{
+        cout << "NO" << endl ;
+    }
+    return 0 ;
+}
