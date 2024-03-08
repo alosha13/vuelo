@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+using namespace std ;
+typedef long long ll ;
+const int mod = (int)1e9 + 7;
+const int N = 1e6 + 9 ;
+vector < ll > v ;
+map < ll , ll > mp ;
+ll n , m , a[N] ;
+
+int main(){
+    int x , y , z , k  ;
+    cin >> x >> y >> z >> k ;
+    // x * y = lcm(x , y) * gcd(x , y) ;
+    ll lcm1 = (x * y) / __gcd(x , y) , lcm2 = (z * k) / __gcd(z , k) ;
+    if(lcm1 < lcm2){
+        cout << "YES" << endl ;
+    }
+    else{
+        cout << "NO" << endl ;
+    }
+    return 0 ;
+}
