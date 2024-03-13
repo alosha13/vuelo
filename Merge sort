@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+#define endl "\n"
+using namespace std ;
+typedef long long ll ;
+const int mod = (int)1e9 + 7;
+const int N = 1e6 + 9 ;
+vector < ll > v ;
+map < ll , ll > mp ;
+ll n , m , a[N] ;
+vector < ll > mer(vector < ll > x , vector < ll > y){
+    ll ind = 0 , ind2 = 0 ;
+    vector < ll > ret ;
+    while(ind < x.size() && ind2 < y.size()){
+        if(x[ind] < y[ind2]){
+            ret.push_back(x[ind]) ;
+            ind++ ;
+        }
+        else{
+            ret.push_back(y[ind2]) ;
+            ind2++ ;
+        }
+    }
+    while(ind < x.size()){
+        ret.push_back(x[ind]) ;
+        ind++ ;
+    }
+    while(ind2 < y.size()){
+        ret.push_back(y[ind2]) ;
+        ind2++ ;
+    }
+    return ret ;
+}
+vector < ll > mersort(ll st , ll en){
+    vector < ll > ret ;
+    if(st == en){
+        ret.push_back(a[st]) ;
+        return ret ;
+    }
+    ll mid = (st + en) /2 ;
+    ret = mer(mersort(st , mid) , mersort(mid+1 , en)) ;
+}
+int main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int n ;
+    cin >> n;
+    for(int i = 1 ; i <= n; i++){
+        cin >> a[i] ;
+    }
+    v = mersort(1 , n) ;
+    for(auto p : v){
+        cout << p << " " ;
+    }
+    cout << endl ;
+    return 0 ;
+}
